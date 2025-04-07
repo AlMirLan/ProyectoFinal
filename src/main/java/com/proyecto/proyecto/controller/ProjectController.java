@@ -118,7 +118,7 @@ public class ProjectController {
 		if (!file.isEmpty()) {
 			String contentType = file.getContentType();
 			if (!contentType.equals("image/png") && !contentType.equals("image/jpeg") && !contentType.equals("image/jpg")) {
-			    return "project/newProject";
+			    return "project/projectList";
 			}
 		}
 
