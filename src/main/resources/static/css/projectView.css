@@ -1,0 +1,24 @@
+.text-small {
+	font-size: 85%;
+  }
+
+.row{
+    margin-bottom: 40px;
+}
+
+.project p{
+    text-align:justify;
+}
+
+.dices img{
+    width: 100%;
+    height: 50%;
+}
+
+.dices{
+    margin-bottom: 20px;
+}
+
+.vote img{
+	width:90px; 
+}

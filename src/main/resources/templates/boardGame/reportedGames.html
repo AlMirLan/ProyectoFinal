@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>Más allá de lo común | Juegos denunciados</title>
+<link rel="icon" href="/images/logo.png">
+
+<!-- Iconos Bootstrap-->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+
+<!-- Bootstrap -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+	crossorigin="anonymous"></script>
+
+<!-- Estilos CSS-->
+<link href="/css/fragments.css" rel="stylesheet">
+<link href="/css/reportedGames.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+	<main>
+		<header th:replace="fragments/headerSearch::header"></header>
+
+		<div class="container-fluid py-5 bg-body-tertiary text-center">
+			<h1>Juegos denunciados</h1>
+
+			<div th:if="${#lists.isEmpty(reportedGames)}">
+				<p>Actualmente no hay ningún juego denunciado</p>
+			</div>
+			<div th:if="${!#lists.isEmpty(reportedGames)}">
+
+				<table class="table accordion">
+					<caption>Juegos denunciados</caption>
+					<thead>
+						<tr>
+							<th scope="col">ID</th>
+							<th scope="col">Nombre</th>
+							<th scope="col">Nº Denuncias</th>
+							<th scope="col">Comentarios</th>
+						</tr>
+					</thead>
+					<tbody class="table-group-divider">
+						<tr th:each="game : ${reportedGames}" data-bs-toggle="collapse"
+							th:data-bs-target="'#' + ${game.idGame}">
+							<th scope="row"><a href="#" th:text="${game.idGame}"></a></th>
+							<td th:text="${game.nameGame}"></td>
+							<td th:text="${game.reportCount}"></td>
+							<td class="accordion-toggle bi bi-chevron-down"></td>
+						</tr>
+
+						<tr th:each="game : ${reportedGames}"
+							class="collapse accordion-collapse" th:id="${game.idGame}"
+							data-bs-parent=".table">
+							<td colspan="4">
+								<div class="accordion-body">
+									Comentarios de <span th:text="${game.nameGame}"></span>:
+									<ul id="comments-row">
+										<li th:each="report : ${reportsMap.get(game.idGame)}">ID
+											usuario: <span th:text="${report.user.idUser}"></span> <span
+											class="bi bi-arrow-right"></span> <span
+											th:text="${report.comment}"></span>
+										</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</main>
+	<a href="#top" class="scroll-to-top"> <em
+		class="bi bi-arrow-up-short" title="Scroll hacia arriba"></em>
+	</a>
+	<footer th:replace="fragments/footer::footer"></footer>
+
+</body>
+</html>

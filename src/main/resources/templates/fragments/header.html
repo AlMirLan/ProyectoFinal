@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Más allá de lo común | Header</title>
+
+<!-- Bootstrap -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+	crossorigin="anonymous">
+
+<!-- Estilos CSS-->
+<link href="/css/fragments.css" rel="stylesheet">
+</head>
+<body>
+	<header th:fragment="header" class="p-3 mb-3 border-bottom">
+		<div class="container">
+			<div
+				class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+				<a href="/gameList"
+					class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+					<img class="bi me-2" width="60" height="55"
+					src="/images/logo.png" alt="Imagen del logo"
+					id="logo-center" />
+				</a>
+
+							<ul
+					class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+					<li th:class="${activePage == 'gameList'} ? 'active-nav-item' : ''">
+						<a href="/gameList" class="nav-link px-2 link-body-emphasis">Juegos</a>
+					</li>
+					<li sec:authorize="hasRole('ROLE_ADMIN')"
+						th:class="${activePage == 'newGame'} ? 'active-nav-item' : ''">
+						<a href="/newGame" class="nav-link px-2 link-body-emphasis">Nuevo
+							juego</a>
+					</li>
+					<li sec:authorize="hasRole('ROLE_ADMIN')"
+						th:class="${activePage == 'reportedGames'} ? 'active-nav-item' : ''">
+						<a href="/reportedGames" class="nav-link px-2 link-body-emphasis">Juegos
+							denunciados</a>
+					</li>
+					<li
+						th:class="${activePage == 'projectList'} ? 'active-nav-item' : ''"><a
+						href="/projectList" class="nav-link px-2 link-body-emphasis">Proyectos</a></li>
+					<li
+						th:class="${activePage == 'newProject'} ? 'active-nav-item' : ''"><a
+						href="/newProject" class="nav-link px-2 link-body-emphasis">Nuevo
+							proyecto</a></li>
+					<li
+						th:class="${activePage == 'myProjects'} ? 'active-nav-item' : ''"><a
+						href="/myProjects" class="nav-link px-2 link-body-emphasis">Mis
+							proyectos</a></li>
+					<li sec:authorize="hasRole('ROLE_ADMIN')"
+						th:class="${activePage == 'usersList'} ? 'active-nav-item' : ''"><a
+						href="/usersList" class="nav-link px-2 link-body-emphasis">Usuarios</a></li>
+				</ul>
+
+				<div class="dropdown text-end">
+					<a href="#"
+						class="d-block link-dark text-decoration-none dropdown-toggle"
+						data-bs-toggle="dropdown" aria-expanded="false"
+						 th:text="${session.userSession.nameUser}">
+						</a>
+					<ul class="dropdown-menu text-small">
+						<li><a class="dropdown-item bi bi-person-vcard" title="Mi perfil" th:href="@{/user/profile}"> Mi
+								perfil</a></li>
+						<li><a class="dropdown-item bi bi-person-fill-x" title="Cerrar sesion"
+							href="javascript:document.getElementById('logoutForm').submit()"> Cerrar
+								sesión</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<form th:action="@{/auth/logout}" method="POST" id="logoutForm"></form>
+	</header>
+</body>
+</html>

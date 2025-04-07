@@ -1,0 +1,54 @@
+.text-small {
+	font-size: 85%;
+}
+
+.btn {
+	background-color: #0E3536;
+	color: white;
+	margin-bottom: 20px;
+	transition: 0.6s;
+	width: 100%;
+}
+
+.btn:hover {
+	background-color: #18756F;
+	color: white
+}
+
+.is-invalid {
+	border-color: red;
+}
+
+form {
+	width: 300px;
+}
+
+.scroll-to-top {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	z-index: 999;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s, visibility 0.3s;
+}
+
+.scroll-to-top em {
+	display: block;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: #0E3536;
+	color: #fff;
+	text-align: center;
+	line-height: 40px;
+	font-size: 20px;
+}
+
+/* Mostrar el bot�n scroll-to-top cuando el usuario desplaza la p�gina */
+@media ( min-height : 400px) {
+	.scroll-to-top {
+		opacity: 1;
+		visibility: visible;
+	}
+}

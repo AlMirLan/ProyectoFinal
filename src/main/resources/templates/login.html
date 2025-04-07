@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Iconos Bootstrap-->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+
+<!-- Bootstrap -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+	crossorigin="anonymous">
+
+<!-- Estilos CSS-->
+<link href="/css/login.css" rel="stylesheet">
+
+<title>Más allá de lo común | Formulario de login</title>
+<link rel="icon" href="/images/logo.png">
+</head>
+
+
+<body>
+	<div class="container">
+
+		<div class="py-3 d-flex justify-content-center align-items-center">
+			<div class="row">
+				<img src="/images/logo.png" alt="logo" id="logo" />
+			</div>
+		</div>
+
+		<div class="py-3 d-flex justify-content-center align-items-center">
+			<div class="row">
+				<form id="loginform" method="POST" th:action="@{/auth/login-post}"
+					role="form">
+
+					<div class="error-message" th:if="${(param.error != null)}">Datos
+						incorrectos</div>
+
+					<div id="banned-message" th:if="${bannedMessage != null}">
+						<p th:text="${bannedMessage}" class="error-message"></p>
+					</div>
+
+					<div class="input-group">
+						<span class="input-group-text bi bi-envelope-at-fill"
+							title="email"> </span> <input type="email" name="username"
+							id="login-email" class="form-control" autofocus
+							placeholder="Correo electrónico" required />
+					</div>
+
+					<div class="input-group">
+						<span class="input-group-text bi bi-lock-fill" title="contraseña">
+						</span> <input type="password" name="password" id="login-pass"
+							class="form-control" placeholder="Contraseña" required />
+					</div>
+
+					<div class="form-group">
+						<div class="input-group">
+							<button type="submit" id="btn-login" class="btn">Iniciar
+								sesión</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="py-2 d-flex justify-content-center align-items-center">
+			<div class="row">
+				<p>
+					¿Eres nuevo? <a href="/register">Regístrate</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

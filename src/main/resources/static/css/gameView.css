@@ -1,0 +1,96 @@
+.text-small {
+	font-size: 85%;
+  }
+  
+.row{
+    margin-bottom: 40px;
+}
+
+.game p{
+    text-align:justify;
+}
+
+.reviews img{
+	width: 30px;
+	height: 30px;
+}
+
+.reviews p{
+    margin: 0px;
+}
+
+.rating{
+    display: flex;
+    justify-content: center;
+}
+
+.form-select{
+    width: 65px;
+}
+
+.form-group{
+    margin-bottom: 10px;
+}
+
+.form-control{
+    width: 500px;
+}
+
+table{
+    border: 1px;
+    text-align: left;
+}
+
+
+.dices img{
+    width: 100%;
+    height: 50%;
+}
+
+.dices{
+    margin-bottom: 20px;
+}
+
+.btn {
+	background-color: #0E3536;
+	color: white;
+	margin-bottom: 20px;
+	width: 200px;
+	transition: 0.6s;
+}
+
+.btn:hover {
+	background-color: #18756F;
+	color: white
+}
+
+.scroll-to-top {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	z-index: 999;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s, visibility 0.3s;
+}
+
+.scroll-to-top em {
+	display: block;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: #0E3536;
+	color: #fff;
+	text-align: center;
+	line-height: 40px;
+	font-size: 20px;
+}
+
+/* Mostrar el botón scroll-to-top cuando el usuario desplaza la página */
+@media ( min-height : 400px) {
+	.scroll-to-top {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+

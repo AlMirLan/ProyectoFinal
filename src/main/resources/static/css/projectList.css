@@ -1,0 +1,71 @@
+.text-small {
+	font-size: 85%;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.card-text {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.card-text p {
+	margin: 0px;
+}
+
+.card-text img {
+	width: 30px;
+	height: 30px;
+}
+
+.only-admin {
+	padding: 0px 5px;
+	margin: 5px, 0px;
+}
+
+.scroll-to-top {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	z-index: 999;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s, visibility 0.3s;
+}
+
+.scroll-to-top em {
+	display: block;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: #0E3536;
+	color: #fff;
+	text-align: center;
+	line-height: 40px;
+	font-size: 20px;
+}
+
+/* Mostrar el bot�n scroll-to-top cuando el usuario desplaza la p�gina */
+@media ( min-height : 400px) {
+	.scroll-to-top {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+.shadow-sm{
+	height: 100%;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+    color: var(--bs-card-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

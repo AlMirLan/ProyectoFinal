@@ -1,0 +1,36 @@
+h1 {
+	text-align: center;
+	font-size: 4em;
+	margin: auto;
+	margin-top: 3%;
+}
+
+a {
+	text-align: center;
+	margin: auto;
+	margin-top: 3%;
+}
+
+h4 {
+	text-align: center;
+	margin: auto;
+	width: 30%;
+	margin-top: 3%;
+}
+
+div {
+	text-align: center;
+	margin: auto;
+}
+
+#error {
+	width: 30%;
+	display: block;
+	margin: auto;
+}
+
+#error500 {
+	width: 40%;
+	display: block;
+	margin: auto;
+}

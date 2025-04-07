@@ -1,0 +1,36 @@
+html, body {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+}
+
+main {
+	flex-grow: 1;
+}
+
+header {
+	background: linear-gradient(#70C3BC, #CBF383);
+}
+
+.active-nav-item {
+	background-color: #CBF383;
+	border-radius: 10px
+}
+
+footer {
+	background: linear-gradient(#70C3BC, #CBF383);
+	height: 70px;
+	flex-shrink: 0;
+}
+
+footer ul{
+	padding-right: 80px;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}

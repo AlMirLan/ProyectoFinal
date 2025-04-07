@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>Más allá de lo común | Lista de proyectos</title>
+<link rel="icon" href="/images/logo.png">
+
+<!-- Iconos Bootstrap-->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+
+<!-- Bootstrap -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+	crossorigin="anonymous"></script>
+
+<!-- Estilos CSS-->
+<link href="/css/fragments.css" rel="stylesheet">
+<link href="/css/projectList.css" rel="stylesheet">
+</head>
+
+<body>
+	<main>
+		<header th:replace="fragments/headerSearch::header"></header>
+
+		<div class="album py-5 bg-body-tertiary">
+			<div class="container">
+
+				<div th:if="${#lists.isEmpty(projectList)}">
+					<p>Actualmente no hay ningún proyecto. Vuelve más tarde</p>
+				</div>
+
+				<div th:if="${!#lists.isEmpty(projectList)}">
+					<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3 ">
+
+						<div th:each="project : ${projectList}" class="col">
+							<a
+								th:href="@{/project/{idProject}(idProject=${project.idProject})}">
+								<div class="card shadow-sm">
+									<img class="bd-placeholder-img card-img-top" width="100%"
+										height="225px" role="img" th:src="@{${project.imageProject}}"
+										preserveAspectRatio="xMidYMid slice" focusable="false"
+										alt="Imagen del proyecto" />
+
+									<div class="card-body">
+										<p th:text="${project.category}" class="card-genre"></p>
+										<h2 th:text="${project.nameProject}"></h2>
+										<div class="card-text">
+											<p th:text="'Nº de votos: ' + ${project.votesCount}"></p>
+
+											<p
+												th:text="'Porcentaje de aprobación: ' + ${project.approval} + '%'"></p>
+										</div>
+
+										<div sec:authorize="hasRole('ROLE_ADMIN')"
+											class="only-admin d-flex justify-content-end">
+											<a
+												th:href="@{/deleteProject (idProject=${project.idProject})}"
+												class="bi bi-trash3 me-auto" title="Eliminar" onclick="return confirm('¿Estás seguro/a?')">Eliminar</a>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<a href="#top" class="scroll-to-top"> <em
+		class="bi bi-arrow-up-short" title="Scroll hacia arriba"></em>
+	</a>
+	<footer th:replace="fragments/footer::footer"></footer>
+</body>
+
+</html>
