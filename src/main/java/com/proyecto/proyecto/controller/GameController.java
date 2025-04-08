@@ -164,7 +164,7 @@ public class GameController {
 			}
 		}
 
-		// Alamacena la imagen
+		// Almacena la imagen
 		String img = storageService.storeGame(file);
 
 		// Asigna los valores del DTO a los campos correspondientes de BoardGame
@@ -273,6 +273,7 @@ public class GameController {
 	        // Crea una lista de ReportDTO para almacenar las denuncias y usuarios
 	        List<ReportDTO> reportDTOs = new ArrayList<>();
 	        for (Report report : reports) {
+	        	
 	            // Crea un nuevo ReportDTO y establece el comentario, el usuario
 	            ReportDTO reportDTO = new ReportDTO();
 	            reportDTO.setComment(report.getComment());

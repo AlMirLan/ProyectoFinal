@@ -132,6 +132,7 @@ public class ProjectController {
 		project.setCategory(projectDTO.getCategory());
 
 		if (img != null) {
+			
 			// Asigna la ruta de la imagen
 			project.setImageProject(MvcUriComponentsBuilder.fromMethodName(ProjectController.class, "serveFile", img).build().toUriString());
 		}

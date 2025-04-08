@@ -6,6 +6,9 @@ package com.proyecto.proyecto.model;
  * @author Alejandro_Mirabent_Landero
  *
  */
+
+// Enumerado en archivo aparte para añadir o borrar categorías de forma sencilla
+// sin afectar al resto del código
 public enum Category {
 
 	ADMINISTRACIÓN,

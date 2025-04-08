@@ -62,6 +62,7 @@ public class ReviewManagementServiceImp implements ReviewManagementServiceI {
 
 			game.setAverageRating(averageRating);
 		} else {
+			
 			// Si no hay valoraciones, establece la nota media a 0
 			game.setAverageRating(0);
 		}

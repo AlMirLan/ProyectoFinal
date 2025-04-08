@@ -33,7 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.authorizeRequests()
 				.antMatchers("/webjars/**", "/css/**", "/images/**" , "/register","/register/submit").permitAll() // Todos pueden acceder
                 .antMatchers("/usersList", "/newGame", "/deleteUser", "/deleteGame", "/deleteProject", "/updateGame", "/reportedGames").hasRole("ADMIN") // Solo puedes acceder si eres administrador
-				.anyRequest().authenticated() // Puedes acceder si has iniciado sesión
+                .anyRequest().authenticated() // Puedes acceder si has iniciado sesión
 				.and()
 			.formLogin()
 				.loginPage("/login")

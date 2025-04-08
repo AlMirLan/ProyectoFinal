@@ -106,6 +106,7 @@ public class UserManagementServiceImp implements UserManagementServiceI {
 
 	@Override
 	public boolean updateUserPassword(String password, User user) {
+		
 		// Actualiza la contraseña del usuario
 		user.setPass(passwordEncoder.encode(password));
 		userRepo.save(user);

@@ -45,7 +45,7 @@ form {
 	font-size: 20px;
 }
 
-/* Mostrar el bot�n scroll-to-top cuando el usuario desplaza la p�gina */
+/* Mostrar el botón scroll-to-top cuando el usuario desplaza la página */
 @media ( min-height : 400px) {
 	.scroll-to-top {
 		opacity: 1;
