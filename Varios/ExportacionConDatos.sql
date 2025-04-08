@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 REPLACE INTO `user` (`user_id`, `user_banned_time`, `user_email`, `user_name`, `user_pass`) VALUES
 	(1, NULL, 'admin@admin.ad', 'Admin', '$2a$10$YS48i/p6kGODkLj5/zxc/.7BVs.ppIm21pFj6hyFrVBkysVP6fmWi'),
 	(2, NULL, 'prueba1@prueba.pr', 'Alejandro', '$2a$10$dQrkih4ucJeGSDc5EeZeRuyGVO3b0zMti7NGFrKIvxCCXspszbQW2'),
-	(3, NULL, 'prueba2@prueba.pr', 'Manoli', '$2a$10$9gbd8fzx3SIG.15lsjjWy.uka88Azcr5IvoUPVwzmEjfdqAgO/wEW'),
+	(3, NULL, 'prueba2@prueba.pr', 'Alejandro_Mirabent_Landero', '$2a$10$9gbd8fzx3SIG.15lsjjWy.uka88Azcr5IvoUPVwzmEjfdqAgO/wEW'),
 	(4, NULL, 'prueba3@prueba.pr', 'Nina', '$2a$10$eEcrlxFGNSbkqYvGYl8XSOgdjbEuW3KxzhCnCwOltboWUnMl15mFy'),
 	(5, NULL, 'prueba4@prueba.pr', 'Maria', '$2a$10$LE.sHjzoo9No0JyHLioso.qVyfvLb8huei3Zypw99.7o1LbhwFqNy'),
 	(6, NULL, 'prueba5@prueba.pr', 'Eduardo', '$2a$10$rHel7.xxXrtanFJbxCtgBefqwW84hdTO7dZVvWm9bICe1MV6xdPwS'),

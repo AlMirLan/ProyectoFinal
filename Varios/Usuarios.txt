@@ -2,7 +2,7 @@ Password para todos: 123456
 Usuarios:
 -admin@admin.ad : Nombre-Admin
 -prueba1@prueba.pr : Nombre-Alejandro
--prueba2@prueba.pr : Nombre-Manoli
+-prueba2@prueba.pr : Nombre-Alejandro_Mirabent_Landero
 -prueba3@prueba.pr : Nombre-Nina
 -prueba4@prueba.pr : Nombre-Maria
 -prueba5@prueba.pr : Nombre-Eduardo
