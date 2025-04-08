@@ -83,7 +83,8 @@ public class ProjectController {
 		if (projectService.vote(vote, idProject, user)) {
 			return "redirect:/projectList";
 		} else {
-			return "redirect:/project/" + idProject;
+			return "redirect:/projectList";
+			//return "redirect:/project/" + idProject;
 		}
 	}
 
