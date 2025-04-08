@@ -26,6 +26,10 @@
 <!-- Estilos CSS-->
 <link href="/css/fragments.css" rel="stylesheet">
 <link href="/css/updateGame.css" rel="stylesheet">
+
+<!-- Funciones JavaScript -->
+<script src="../../js/funciones.js"></script>
+
 </head>
 
 <body>
@@ -38,7 +42,7 @@
 
 			<div class="py-3 d-flex justify-content-center align-items-center">
 
-				<form method="post" th:action="@{/report(idGame=${idGame})}" th:object="${report}" onsubmit="return validateForm()">
+				<form method="post" th:action="@{/report(idGame=${idGame})}" th:object="${report}" onsubmit="return validateFormReport()">
 
 					<div class="mb-3">
 						<label for="comment" class="form-label">Descripción del problema</label>
@@ -63,21 +67,5 @@
 		class="bi bi-arrow-up-short" title="Scroll hacia arriba"></em>
 	</a>
 	<footer th:replace="fragments/footer::footer"></footer>
-
-	<script>
-		function validateForm() {
-		    const commentInput = document.getElementById('comment');
-
-		    // Validación de longitud de la descripción
-		    if (commentInput.value.length < 20 || commentInput.value.length > 100) {
-		    	commentInput.classList.add('is-invalid');
-		        return false; // Evita que se envíe el formulario
-		    } else {
-		        descriptionInput.classList.remove('is-invalid');
-		    }
-
-		    return true; // Envía el formulario si todas las validaciones son válidas
-		} 
-	</script>
 </body>
 </html>

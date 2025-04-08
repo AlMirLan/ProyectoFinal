@@ -61,12 +61,13 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /*justify-content: end;*/
 }
 
-/*.card-body a {
+
+/* Necesario para que no descuadre en la vista del admin */
+.card-body a {
     display: flex;
     flex-direction: column;
     height: 100%;
     justify-content: space-between;
-}*/
+}

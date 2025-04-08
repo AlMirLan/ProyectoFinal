@@ -26,6 +26,9 @@
 <!-- Estilos CSS-->
 <link href="/css/fragments.css" rel="stylesheet">
 <link href="/css/newProject.css" rel="stylesheet">
+
+<!-- Funciones JavaScript -->
+<script src="../../js/funciones.js"></script>
 </head>
 
 <body>
@@ -39,7 +42,7 @@
 			<div class="py-3 d-flex justify-content-center align-items-center">
 
 				<form method="post" th:action="@{/newGame/submit}"
-					th:object="${newGame}" onsubmit="return validateForm()"
+					th:object="${newGame}" onsubmit="return validateFormNewGame()"
 					enctype="multipart/form-data">
 
 					<div class="mb-3">
@@ -85,55 +88,5 @@
 		</div>
 	</main>
 	<footer th:replace="fragments/footer::footer"></footer>
-
-	<script>
-	function validateForm() {
-	    const titleInput = document.getElementById('title');
-	    const descriptionInput = document.getElementById('description');
-	    const fileInput = document.getElementById('image');
-	    const maxSize = 1000000; // 1 MB
-
-	    // Validación de longitud del título
-	    if (titleInput.value.length < 3 || titleInput.value.length > 100) {
-	        titleInput.classList.add('is-invalid');
-	        return false; // Evita que se envíe el formulario
-	    } else {
-	        titleInput.classList.remove('is-invalid');
-	    }
-
-	    // Validación de longitud de la descripción
-	    if (descriptionInput.value.length < 4 || descriptionInput.value.length > 1200) {
-	        descriptionInput.classList.add('is-invalid');
-	        return false; // Evita que se envíe el formulario
-	    } else {
-	        descriptionInput.classList.remove('is-invalid');
-	    }
-
-	    // Validación del tamaño de la imagen
-	    if (fileInput.files.length > 0) {
-	        const fileSize = fileInput.files[0].size; // Tamaño del archivo en bytes
-	        const imageSizeError = document.getElementById('fileSizeError');
-	        const allowedExtensions = ['.png', '.jpg', '.jpeg'];
-	        const fileExtension = fileInput.value.substring(fileInput.value.lastIndexOf('.')).toLowerCase();
-
-	        if (!allowedExtensions.includes(fileExtension)) {
-	            imageSizeError.textContent = 'El archivo debe ser de tipo PNG, JPG o JPEG.';
-	            imageSizeError.style.display = 'block';
-	            fileInput.classList.add('is-invalid');
-	            return false; // Evita que se envíe el formulario
-	        } else if (fileSize > maxSize) {
-	            imageSizeError.textContent = 'El archivo debe tener un tamaño máximo de 1 MB.';
-	            imageSizeError.style.display = 'block';
-	            fileInput.classList.add('is-invalid');
-	            return false; // Evita que se envíe el formulario
-	        } else {
-	            imageSizeError.style.display = 'none';
-	            fileInput.classList.remove('is-invalid');
-	        }
-	    }
-
-	    return true; // Envía el formulario si todas las validaciones son válidas
-	}
-	</script>
 </body>
 </html>

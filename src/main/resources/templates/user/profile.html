@@ -26,6 +26,10 @@
 <!-- Estilos CSS-->
 <link href="/css/fragments.css" rel="stylesheet">
 <link href="/css/profile.css" rel="stylesheet">
+
+<!-- Funciones JavaScript -->
+<script src="../../js/funciones.js"></script>
+
 </head>
 
 <body>
@@ -157,57 +161,7 @@
 	<footer th:replace="fragments/footer::footer"></footer>
 
 	<script>
-		(function() {
-
-			// Obtiene el formulario al que se quiere aplicar estilos de validación de Bootstrap personalizados
-			const form = document.querySelector('.needs-validation')
-
-			// Evita el envío del formulario
-			form.addEventListener('submit', function(event) {
-				// Si el formulario no es válido, se previene el envío y se detiene la propagación del evento
-				if (!form.checkValidity()) {
-					event.preventDefault()
-					event.stopPropagation()
-
-					// Si el formulario es válido, pero no pasa la validación personalizada, se previene el envío
-				} else if (!validate()) {
-					event.preventDefault();
-				}
-				// Agrega la clase was-validated al formulario para mostrar los estilos de validación personalizados de Bootstrap
-				form.classList.add('was-validated')
-			}, false)
-		})();
-
-		function validateUser() {
-			const pass = document.getElementById("pass").value;
-			const repitPass = document.getElementById("repit-pass").value;
-			// Si las contraseñas no coinciden, se establece un mensaje personalizado de validación
-			if (pass != repitPass) {
-				document.getElementById("repit-pass").setCustomValidity(
-						"La contraseña no coincide o está vacía");
-				return false;
-			} else {
-				// Si las contraseñas coinciden, se limpia el mensaje de validación personalizado
-				document.getElementById("repit-pass").setCustomValidity("");
-			}
-			return true;
-		}
-
-		function validateAdmin() {
-			const adminPass = document.getElementById("admin-pass").value;
-			const repitAdminPass = document.getElementById("repit-admin-pass").value;
-			// Si las contraseñas no coinciden, se establece un mensaje personalizado de validación
-			if (adminPass != repitAdminPass) {
-				document.getElementById("repit-admin-pass").setCustomValidity(
-						"La contraseña no coincide o está vacía");
-				return false;
-			} else {
-				// Si las contraseñas coinciden, se limpia el mensaje de validación personalizado
-				document.getElementById("repit-admin-pass").setCustomValidity(
-						"");
-			}
-			return adminPass !== '' && repitAdminPass !== '';
-		}
+		document.addEventListener('DOMContentLoaded', validarFormulario);
 	</script>
 </body>
 </html>
