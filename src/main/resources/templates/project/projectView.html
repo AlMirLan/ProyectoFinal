@@ -4,7 +4,9 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Más allá de lo común | Proyecto</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Vista de proyecto concreto - Más allá de lo común">
+<title th:text="'Más allá de lo común | ' + ${project.nameProject}"></title>
 <link rel="icon" href="/images/logo.png">
 
 <!-- Iconos Bootstrap-->
@@ -38,7 +40,7 @@
 					<div class="col-4 col-lg-3 align-self-center">
 						<a href="#" data-bs-toggle="modal" data-bs-target="#imageModal">
 							<img th:src="@{${project.imageProject}}" class="img-fluid"
-							alt="Imagen del proyecto">
+							th:alt="|Imagen del proyecto ${project.nameProject}|">
 						</a>
 					</div>
 
