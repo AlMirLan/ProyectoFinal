@@ -31,7 +31,8 @@ public class ReportManagementServiceImp implements ReportManagementServiceI {
 	public void createReport(ReportDTO reportDTO, Long idGame, User user, String comment) {
 
 		// Obtiene el juego por su ID o lanza una excepción si no se encuentra
-		BoardGame boardGame = gameRepo.findById(idGame).orElseThrow(() -> new IllegalArgumentException("Juego no encontrado"));
+		BoardGame boardGame = gameRepo.findById(idGame)
+				.orElseThrow(() -> new IllegalArgumentException("Juego no encontrado"));
 
 		Report newReport = new Report();
 		ReportPK reportPK = new ReportPK();
@@ -61,7 +62,7 @@ public class ReportManagementServiceImp implements ReportManagementServiceI {
 		game.setReportCount(reports.size());
 		gameRepo.save(game);
 	}
-	
+
 	@Override
 	public List<String> getCommentsByGameId(Long gameId) {
 		return reportRepo.findCommentsByGameId(gameId);

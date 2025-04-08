@@ -38,5 +38,4 @@ public interface ReportManagementServiceI {
 	 */
 	public List<String> getCommentsByGameId(Long gameId);
 
-
 }

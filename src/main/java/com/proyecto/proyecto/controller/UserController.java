@@ -43,7 +43,7 @@ public class UserController {
 			request.getSession().setAttribute("bannedMessage", "Cuenta suspendida. No puedes iniciar sesión.");
 			return "redirect:/login";
 		} else {
-			
+
 			// Si el inicio de sesión es exitoso, se guarda el usuario en la sesión y se
 			// redirige a la lista de juegos
 			request.getSession().setAttribute("userSession", loginUser);
@@ -61,7 +61,7 @@ public class UserController {
 	@GetMapping("/usersList")
 	public String listUsers(Model model, @RequestParam(value = "q", required = false) String filterString) {
 		model.addAttribute("activePage", "usersList");
-		
+
 		// Si el parámetro de búsqueda es nulo, se muestra todos los usuarios
 		if (filterString == null) {
 			model.addAttribute("listOfUsers", userService.searchAll());
@@ -205,7 +205,7 @@ public class UserController {
 	@PostMapping("/user/updateUserPassword")
 	public String updateAdminUserPassword(@RequestParam("password") String password, HttpServletRequest request,
 			Model model) {
-		
+
 		// Obtiene el usuario de la sesión
 		User usuSesion = (User) request.getSession().getAttribute("userSession");
 

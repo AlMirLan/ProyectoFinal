@@ -21,7 +21,7 @@ public class VotePK implements Serializable {
 
 	/** Identificador del usuario **/
 	private Long userId;
-	
+
 	/** Identificador del proyecto **/
 	private Long projectId;
 

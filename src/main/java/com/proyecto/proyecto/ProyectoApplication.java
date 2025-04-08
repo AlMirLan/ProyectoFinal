@@ -42,4 +42,3 @@ public class ProyectoApplication extends SpringBootServletInitializer {
 
 	}
 }
-

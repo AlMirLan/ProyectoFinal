@@ -15,7 +15,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ReviewDTO {
-	
+
 	/** Identificador de valoración **/
 	private ReviewPK idReview;
 

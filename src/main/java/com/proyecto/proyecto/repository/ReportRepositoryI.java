@@ -26,7 +26,8 @@ public interface ReportRepositoryI extends JpaRepository<Report, ReportPK> {
 	public List<Report> findByBoardGameIdGame(Long idGame);
 
 	/**
-	 * Método que lista todos los comentarios de las denuncias asociadas a un juego específico.
+	 * Método que lista todos los comentarios de las denuncias asociadas a un juego
+	 * específico.
 	 * 
 	 * @param gameId
 	 * @return List<String>

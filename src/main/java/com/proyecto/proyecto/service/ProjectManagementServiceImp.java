@@ -126,11 +126,12 @@ public class ProjectManagementServiceImp implements ProjectManagementServiceI {
 			}
 		}
 
-		// Calcula el porcentaje de aprobación en base a los votos positivos y el total de votos
+		// Calcula el porcentaje de aprobación en base a los votos positivos y el total
+		// de votos
 		percentage = (positiveVotes * 100.0) / votes.size();
-		
+
 		// Redondea el porcentaje a dos decimales
-		percentage = Math.round(percentage * 100.0) / 100.0; 
+		percentage = Math.round(percentage * 100.0) / 100.0;
 
 		// Actualiza el porcentaje de aprobación y el número de votos
 		project.setApproval(percentage);
@@ -156,7 +157,8 @@ public class ProjectManagementServiceImp implements ProjectManagementServiceI {
 
 	@Override
 	public void projectEvolve(Project project) {
-		BoardGame boardGame = new BoardGame(project.getCategory(), project.getNameProject(), project.getDescriptionProject(), project.getImageProject(), 0, 0);
+		BoardGame boardGame = new BoardGame(project.getCategory(), project.getNameProject(),
+				project.getDescriptionProject(), project.getImageProject(), 0, 0);
 		gameRepo.save(boardGame);
 		projectRepo.deleteById(project.getIdProject());
 	}
