@@ -41,7 +41,7 @@ public class BoardGame implements Serializable {
 	private String nameGame;
 
 	/** Decripcion del juego **/
-	@Column(name = "GAME_DESCRIPTION")
+	@Column(name = "GAME_DESCRIPTION", length = 1200)
 	private String descriptionGame;
 
 	/** Imagen del juego **/

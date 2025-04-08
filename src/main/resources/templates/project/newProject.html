@@ -57,7 +57,7 @@
 							placeholder="Descripción" th:field="*{descriptionProject}"
 							required></textarea>
 						<div class="invalid-feedback">La descripción debe tener
-							entre 4 y 500 caracteres.</div>
+							entre 4 y 1200 caracteres.</div>
 					</div>
 
 					<div class="mb-3">
@@ -107,7 +107,7 @@
 	    }
 
 	    // Validación de longitud de la descripción
-	    if (descriptionInput.value.length < 4 || descriptionInput.value.length > 500) {
+	    if (descriptionInput.value.length < 4 || descriptionInput.value.length > 1200) {
 	        descriptionInput.classList.add('is-invalid');
 	        return false; // Evita que se envíe el formulario
 	    } else {

@@ -1,0 +1,17 @@
+Password para todos: 123456
+Usuarios:
+-admin@admin.ad : Nombre-Admin
+-prueba1@prueba.pr : Nombre-Alejandro
+-prueba2@prueba.pr : Nombre-Manoli
+-prueba3@prueba.pr : Nombre-Nina
+-prueba4@prueba.pr : Nombre-Maria
+-prueba5@prueba.pr : Nombre-Eduardo
+-prueba6@prueba.pr : Nombre-Juani
+-prueba7@prueba.pr : Nombre-Luna
+-prueba8@prueba.pr : Nombre-Domingo
+-prueba9@prueba.pr : Nombre-Fracisco Javier
+-prueba10@prueba.pr : Nombre-Isabel
+-prueba11@prueba.pr : Nombre-Cristo
+-prueba12@prueba.pr : Nombre-Mario
+-prueba13@prueba.pr : Nombre-Carlos
+-prueba14@prueba.pr : Nombre-Tasio

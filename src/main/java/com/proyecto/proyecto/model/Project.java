@@ -41,7 +41,7 @@ public class Project implements Serializable {
 	private String nameProject;
 
 	/** Descripcion del proyecto **/
-	@Column(name = "PROJECT_DESCRIPTION")
+	@Column(name = "PROJECT_DESCRIPTION", length = 1200)
 	private String descriptionProject;
 
 	/** Imagen del proyecto **/
