@@ -40,7 +40,7 @@ public class UserController {
 
 		// Si el usuario está vetado se muestra un mensaje y redirige al login
 		if (loginUser == null) {
-			request.getSession().setAttribute("bannedMessage", "Cuenta suspendida. No puedes iniciar sesión.");
+			request.getSession().setAttribute("bannedMessage", "Cuenta suspendida. No puedes iniciar sesión hasta: ");
 			return "redirect:/login";
 		} else {
 

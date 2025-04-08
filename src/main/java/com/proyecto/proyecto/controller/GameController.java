@@ -1,6 +1,7 @@
 package com.proyecto.proyecto.controller;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -76,7 +77,8 @@ public class GameController {
 		// Comprueba si el usuario está vetado
 		LocalDateTime now = LocalDateTime.now();
 		if (usuario != null && usuario.getBannedTime() != null && usuario.getBannedTime().isAfter(now)) {
-			model.addAttribute("bannedMessage", "Cuenta suspendida. No puedes iniciar sesión.");
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss 'del día' dd/MM/yyyy");
+			model.addAttribute("bannedMessage", "Cuenta suspendida. No puedes iniciar sesión hasta las " + usuario.getBannedTime().format(formatter));
 			return "forward:/login";
 		}
 		
