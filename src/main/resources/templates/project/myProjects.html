@@ -44,12 +44,12 @@
 					<caption>Lista de mis proyectos</caption>
 					<thead>
 						<tr>
-							<th scope="col">Imagen</th>
-							<th scope="col">Nombre</th>
-							<th scope="col">Género</th>
-							<th scope="col">Nº votos</th>
-							<th scope="col">Aprobación</th>
-							<th scope="col">Eliminar</th>
+							<th scope="col" tabindex="0" id="col-imagen">Imagen</th>
+							<th scope="col" tabindex="0" id="col-nombre">Nombre</th>
+							<th scope="col" tabindex="0" id="col-genero">Género</th>
+							<th scope="col" tabindex="0" id="col-numVotos">Nº votos</th>
+							<th scope="col" tabindex="0" id="col-aprobacion">Aprobación</th>
+							<th scope="col" tabindex="0" id="col-eliminar">Eliminar</th>
 						</tr>
 					</thead>
 
@@ -62,23 +62,23 @@
 									th:alt="|Imagen del proyecto ${project.nameProject}|" />
 							</a></th>
 							<td><a th:href="@{'/project/' + ${project.idProject}}"
-								th:text="${project.nameProject}"></td>
+								th:text="${project.nameProject}" tabindex="0"></td>
 							<td><a th:href="@{'/project/' + ${project.idProject}}"
-								th:text="${project.category}"></td>
+								th:text="${project.category}" tabindex="0"></td>
 							<td><a th:href="@{'/project/' + ${project.idProject}}"
-								th:text="${project.votesCount}"></td>
+								th:text="${project.votesCount}" tabindex="0"></td>
 							<td><a th:href="@{'/project/' + ${project.idProject}}"
-								th:text="${project.approval} + '%'"></a></td>
+								th:text="${project.approval} + '%'" tabindex="0"></a></td>
 							<td><a
 								th:href="@{/deleteMyProject (idProject=${project.idProject})}"
-								class="bi bi-trash3 me-auto" title="Eliminar" onclick="return confirm('¿Estás seguro/a?')"></a></td>
+								class="bi bi-trash3 me-auto" title="Eliminar"  tabindex="0" onclick="return confirm('¿Estás seguro/a?')"></a></td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
 	</main>
-	<a href="#top" title="flechaInicio" class="scroll-to-top"> <em
+	<a href="#top" title="flechaInicio" tabindex="0" class="scroll-to-top"> <em
 		class="bi bi-arrow-up-short" title="Scroll hacia arriba"></em>
 	</a>
 	<footer th:replace="fragments/footer::footer"></footer>

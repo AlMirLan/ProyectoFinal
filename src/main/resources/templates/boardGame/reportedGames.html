@@ -40,7 +40,7 @@
 			<h1>Juegos denunciados</h1>
 
 			<div th:if="${#lists.isEmpty(reportedGames)}">
-				<p>Actualmente no hay ningún juego denunciado</p>
+				<p tabindex="0">Actualmente no hay ningún juego denunciado</p>
 			</div>
 			<div th:if="${!#lists.isEmpty(reportedGames)}">
 
@@ -48,19 +48,19 @@
 					<caption>Juegos denunciados</caption>
 					<thead>
 						<tr>
-							<th scope="col">ID</th>
-							<th scope="col">Nombre</th>
-							<th scope="col">Nº Denuncias</th>
-							<th scope="col">Comentarios</th>
+							<th scope="col" tabindex="0">ID</th>
+							<th scope="col" tabindex="0">Nombre</th>
+							<th scope="col" tabindex="0">Nº Denuncias</th>
+							<th scope="col" tabindex="0">Comentarios</th>
 						</tr>
 					</thead>
 					<tbody class="table-group-divider">
 						<tr th:each="game : ${reportedGames}" data-bs-toggle="collapse"
 							th:data-bs-target="'#' + ${game.idGame}">
-							<th scope="row"><a href="#" th:text="${game.idGame}"></a></th>
-							<td th:text="${game.nameGame}"></td>
-							<td th:text="${game.reportCount}"></td>
-							<td class="accordion-toggle bi bi-chevron-down"></td>
+							<th scope="row"><a href="#" th:text="${game.idGame}" tabindex="0"></a></th>
+							<td th:text="${game.nameGame}" tabindex="0"></td>
+							<td th:text="${game.reportCount}" tabindex="0"></td>
+							<td class="accordion-toggle bi bi-chevron-down" tabindex="0"></td>
 						</tr>
 
 						<tr th:each="game : ${reportedGames}"
@@ -68,9 +68,9 @@
 							data-bs-parent=".table">
 							<td colspan="4">
 								<div class="accordion-body">
-									Comentarios de <span th:text="${game.nameGame}"></span>:
+									Comentarios de <span th:text="${game.nameGame}"	tabindex="0"></span>:
 									<ul id="comments-row">
-										<li th:each="report : ${reportsMap.get(game.idGame)}">ID
+										<li th:each="report : ${reportsMap.get(game.idGame)}"  tabindex="0">ID
 											usuario: <span th:text="${report.user.idUser}"></span> <span
 											class="bi bi-arrow-right"></span> <span
 											th:text="${report.comment}"></span>
@@ -84,7 +84,7 @@
 			</div>
 		</div>
 	</main>
-	<a href="#top" title="flechaInicio" class="scroll-to-top"> <em
+	<a href="#top" title="flechaInicio" tabindex="0" class="scroll-to-top"> <em
 		class="bi bi-arrow-up-short" title="Scroll hacia arriba"></em>
 	</a>
 	<footer th:replace="fragments/footer::footer"></footer>

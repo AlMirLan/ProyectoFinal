@@ -131,8 +131,8 @@
 							<tbody>
 
 								<tr th:each="review : ${listReview}">
-									<td><span th:text="${review.user.nameUser}"></span>
-										<p th:text="${review.comment}"></p></td>
+									<td><span th:text="${review.user.nameUser}" tabindex="0"></span>
+										<p th:text="${review.comment}" tabindex="0"></p></td>
 								</tr>
 							</tbody>
 						</table>
@@ -152,7 +152,7 @@
 		</div>
 
 	</main>
-	<a href="#top" title="flechaInicio" class="scroll-to-top"> <em
+	<a href="#top" title="flechaInicio" tabindex="0" class="scroll-to-top"> <em
 		class="bi bi-arrow-up-short" title="Scroll hacia arriba"></em>
 	</a>
 	
