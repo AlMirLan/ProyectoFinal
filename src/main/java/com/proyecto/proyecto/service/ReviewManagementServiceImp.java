@@ -31,7 +31,11 @@ public class ReviewManagementServiceImp implements ReviewManagementServiceI {
 		// Obtiene el juego por su ID o lanza una excepción si no se encuentra
 		BoardGame boardGame = gameRepo.findById(idGame)
 				.orElseThrow(() -> new IllegalArgumentException("Juego no encontrado"));
-
+		
+		// Genera un comentario genérico si se ha realizado la puntuación sin dejar un comentario
+		if(review.getComment() == "") {
+			review.setComment("No se ha dejado ningún comentario");
+		}
 		// Crea una nueva valoración con el usuario, el juego, la nota y el comentario
 		Review newReview = new Review(user, boardGame, review.getRating(), review.getComment());
 

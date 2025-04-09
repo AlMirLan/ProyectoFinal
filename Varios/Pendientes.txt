@@ -1,0 +1,4 @@
+-Revisar etiquetas accesibilidad tablas
+-Revisar apariencia comentarios en juegos
+-Dejar proyectos listos para ser borrados o cambiados a juegos por los votos -> LISTO
+-Comprobar apariencia en móvil y tablet
