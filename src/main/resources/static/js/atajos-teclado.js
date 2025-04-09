@@ -60,7 +60,7 @@ window.onload =  function() {
           navigateTo = '/gameList';
           feedbackMessage = 'Navegando a Juegos...';
           break;
-//        case 'n': // Alt + N para "Nuevo juego"
+//        case 'y': // Alt + Y para "Nuevo juego"
 //          navigateTo = '/newGame';
 //          feedbackMessage = 'Navegando a Nuevo juego...';
 //          break;
@@ -72,7 +72,7 @@ window.onload =  function() {
           navigateTo = '/projectList';
           feedbackMessage = 'Navegando a Proyectos...';
           break;
-        case 'y': // Alt + Y para "Nuevo proyecto"
+        case 'n': // Alt + N para "Nuevo proyecto"
           navigateTo = '/newProject';
           feedbackMessage = 'Navegando a Nuevo proyecto...';
           break;
@@ -117,7 +117,7 @@ window.onload =  function() {
         shortcutText = 'Alt+J';
         break;
       case '/newGame':
-        shortcutText = 'Alt+N';
+        shortcutText = 'Alt+Y';
         break;
       case '/reportedGames':
         shortcutText = 'Alt+R';
@@ -126,7 +126,7 @@ window.onload =  function() {
         shortcutText = 'Alt+P';
         break;
       case '/newProject':
-        shortcutText = 'Alt+Y';
+        shortcutText = 'Alt+N';
         break;
       case '/myProjects':
         shortcutText = 'Alt+M';
