@@ -25,12 +25,11 @@
 				class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 				<a href="/gameList"
 					class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
-					<img class="bi me-2" width="60" height="55"
-					src="/images/logo.png" alt="Imagen del logo"
-					id="logo-center" />
+					<img class="bi me-2" width="60" height="55" src="/images/logo.png"
+					alt="Imagen del logo" id="logo-center" />
 				</a>
 
-							<ul
+				<ul
 					class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 					<li th:class="${activePage == 'gameList'} ? 'active-nav-item' : ''">
 						<a href="/gameList" class="nav-link px-2 link-body-emphasis">Juegos</a>
@@ -65,20 +64,22 @@
 					<a href="#"
 						class="d-block link-dark text-decoration-none dropdown-toggle"
 						data-bs-toggle="dropdown" aria-expanded="false"
-						 th:text="${session.userSession.nameUser}">
-						</a>
+						th:text="${session.userSession.nameUser}"> </a>
 					<ul class="dropdown-menu text-small">
-						<li><a class="dropdown-item bi bi-person-vcard" title="Mi perfil" th:href="@{/user/profile}"> Mi
-								perfil</a></li>
-						<li><a class="dropdown-item bi bi-person-fill-x" title="Cerrar sesion"
-							href="javascript:document.getElementById('logoutForm').submit()"> Cerrar
-								sesión</a></li>
+						<li><a class="dropdown-item bi bi-person-vcard"
+							title="Mi perfil" th:href="@{/user/profile}"> Mi perfil</a></li>
+						<li><a class="dropdown-item bi bi-person-fill-x"
+							title="Cerrar sesion"
+							href="javascript:document.getElementById('logoutForm').submit()">
+								Cerrar sesión</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
 		<form th:action="@{/auth/logout}" method="POST" id="logoutForm"></form>
-	<script th:src="@{/js/atajos-teclado.js}"></script>
+
+		<!-- Script que inserta y controla los atajos por teclado para mayor accesibilidad -->
+		<script th:src="@{/js/atajos-teclado.js}"></script>
 	</header>
 </body>
 </html>

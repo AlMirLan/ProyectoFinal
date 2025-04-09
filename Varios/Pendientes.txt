@@ -1,5 +1,5 @@
 -Revisar etiquetas accesibilidad tablas
--Revisar apariencia comentarios en juegos
+-Revisar apariencia comentarios en juegos -> +O-
 -Dejar proyectos listos para ser borrados o cambiados a juegos por los votos -> LISTO
 -Comprobar apariencia en móvil y tablet
--Navegar por nav con teclas
+-Navegar por nav con teclas -> LISTO
