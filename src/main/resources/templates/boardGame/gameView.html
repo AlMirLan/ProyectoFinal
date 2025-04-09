@@ -62,17 +62,17 @@
 					</div>
 
 					<div class="game col-sm-6 col-lg-8">
-						<h2 th:text="${game.nameGame}"></h2>
-						<h4 class="mt-4" th:text="'Género: ' + ${game.category}"></h4>
-						<p class="mt-4" th:text="${game.descriptionGame}"></p>
+						<h2 th:text="${game.nameGame}" tabindex="0"></h2>
+						<h4 class="mt-4" th:text="'Género: ' + ${game.category}" tabindex="0"></h4>
+						<p class="mt-4" th:text="${game.descriptionGame}" tabindex="0"></p>
 					</div>
 
 					<div class="reviews col-3 col-lg-1 align-self-center">
 						<p>
-							<span th:text="${game.averageRating}"></span> <img
+							<span th:text="${game.averageRating}" tabindex="0"></span> <img
 								src="/images/diceAverage.png" alt="Dado de 10 caras" />
 						</p>
-						<p th:text="'de ' + ${game.reviewCount} + ' valoraciones'"></p>
+						<p th:text="'de ' + ${game.reviewCount} + ' valoraciones'" tabindex="0"></p>
 					</div>
 				</div>
 
@@ -83,15 +83,15 @@
 				<div class="row justify-content-center">
 					<div class="col-sm-6 col-lg-8">
 						<div class="container">
-							<h2>¡Deja tu reseña!</h2>
+							<h2 tabindex="0">¡Deja tu reseña!</h2>
 
 							<form method="post" th:action="@{/value(idGame=${idGame})}"
 								th:object="${review}">
 								<div class="form-group">
-									<label for="game-rating">Valoración:</label>
+									<label for="game-rating" tabindex="0">Valoración:</label>
 									<div class="rating">
 										<select class="form-select form-select-sm" id="game-rating"
-											name="rating">
+											name="rating" tabindex="0">
 											<option value="1">1</option>
 											<option value="2">2</option>
 											<option value="3">3</option>
