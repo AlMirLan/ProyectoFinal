@@ -84,12 +84,12 @@ public class BoardGame implements Serializable {
 	/**
 	 * Constructor
 	 * 
-	 * @param category
-	 * @param nameGame
-	 * @param descriptionGame
-	 * @param imageGame
-	 * @param reviewCount
-	 * @param averageRating
+	 * @param category Categoría del juego
+	 * @param nameGame Nombre del juego
+	 * @param descriptionGame Descripción del juego
+	 * @param imageGame Imagen del juego
+	 * @param reviewCount Conteo de las reviews
+	 * @param averageRating Puntuación media
 	 */
 	public BoardGame(Category category, String nameGame, String descriptionGame, String imageGame, int reviewCount,
 			double averageRating) {

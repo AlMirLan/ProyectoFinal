@@ -20,8 +20,8 @@ public interface ReportRepositoryI extends JpaRepository<Report, ReportPK> {
 	/**
 	 * Método que lista las valoraciones asociadas a un juego de mesa
 	 * 
-	 * @param idGame
-	 * @return List<Report>
+	 * @param idGame ID del juego
+	 * @return List<Report> Lista de los reportes/denuncias
 	 */
 	public List<Report> findByBoardGameIdGame(Long idGame);
 
@@ -29,8 +29,8 @@ public interface ReportRepositoryI extends JpaRepository<Report, ReportPK> {
 	 * Método que lista todos los comentarios de las denuncias asociadas a un juego
 	 * específico.
 	 * 
-	 * @param gameId
-	 * @return List<String>
+	 * @param gameId ID del juego
+	 * @return List<String> Lista de los comentarios adjuntados en el reporte/denuncia
 	 */
 	@Query("SELECT r.comment FROM Report r WHERE r.boardGame.idGame = :gameId")
 	public List<String> findCommentsByGameId(@Param("gameId") Long gameId);

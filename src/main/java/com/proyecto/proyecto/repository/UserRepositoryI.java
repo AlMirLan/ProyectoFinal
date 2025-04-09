@@ -23,16 +23,16 @@ public interface UserRepositoryI extends JpaRepository<User, Long> {
 	/**
 	 * Método que busca un usuario por su email
 	 * 
-	 * @param email
-	 * @return User
+	 * @param email Mail del usuario
+	 * @return User Usuario
 	 */
 	public User findByEmail(String email);
 
 	/**
 	 * Método que busca por el nombre de usuario
 	 * 
-	 * @param username
-	 * @return User
+	 * @param username Nombre del usuario
+	 * @return User Usuario
 	 */
 	public User findByNameUser(String username);
 
@@ -40,8 +40,8 @@ public interface UserRepositoryI extends JpaRepository<User, Long> {
 	 * Método que busca un usuario cuyo nombre contenga una cadena específica,
 	 * ignorando mayúsculas y minúsculas
 	 * 
-	 * @param filterString
-	 * @return List<User>
+	 * @param filterString Filtro como cadena
+	 * @return List<User> Lista de usuarios
 	 */
 	public List<User> findByNameUserContainingIgnoreCase(String filterString);
 

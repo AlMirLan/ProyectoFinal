@@ -16,25 +16,25 @@ public interface ReportManagementServiceI {
 	/**
 	 * Crea una denuncia
 	 * 
-	 * @param reportDTO
-	 * @param idGame
-	 * @param user
-	 * @param comment
+	 * @param reportDTO ReporteDTO
+	 * @param idGame ID de juego
+	 * @param user Usuario
+	 * @param comment Comentario
 	 */
 	public void createReport(ReportDTO reportDTO, Long idGame, User user, String comment);
 
 	/**
 	 * Actualiza el número de denuncias de un juego
 	 * 
-	 * @param game
+	 * @param game Juego
 	 */
 	public void updateReportCount(BoardGame game);
 
 	/**
 	 * Lista los comentarios asociados a un juego mediante su ID.
 	 * 
-	 * @param gameId
-	 * @return List<String>
+	 * @param gameId ID de juego
+	 * @return List<String> Devuelve una lista de comentarios
 	 */
 	public List<String> getCommentsByGameId(Long gameId);
 

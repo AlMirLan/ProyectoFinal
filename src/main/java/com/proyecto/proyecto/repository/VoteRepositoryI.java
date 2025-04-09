@@ -20,8 +20,8 @@ public interface VoteRepositoryI extends JpaRepository<Vote, VotePK> {
 	/**
 	 * Método que lista los votos asociados a un proyecto
 	 * 
-	 * @param project
-	 * @return List<Vote>
+	 * @param project Proyecto
+	 * @return List<Vote> Lista de votos
 	 */
 	public List<Vote> findByProject(Project project);
 }

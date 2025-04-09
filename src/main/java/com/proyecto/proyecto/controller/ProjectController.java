@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
-
 import com.proyecto.proyecto.dto.ProjectDTO;
 import com.proyecto.proyecto.model.Project;
 import com.proyecto.proyecto.model.User;
@@ -23,6 +22,12 @@ import com.proyecto.proyecto.service.ProjectManagementServiceI;
 import com.proyecto.proyecto.storage.StorageService;
 import io.swagger.v3.oas.annotations.Operation;
 
+/**
+ * Clase controlador de Proyecto
+ * 
+ * @author Alejandro_Mirabent_Landero
+ *
+ */
 @Controller
 public class ProjectController {
 

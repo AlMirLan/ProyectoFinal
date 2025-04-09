@@ -16,25 +16,25 @@ public interface UserManagementServiceI {
 	/**
 	 * Crea un nuevo usuario
 	 * 
-	 * @param newUser
-	 * @return boolean
+	 * @param newUser Nuevo usuario
+	 * @return boolean Devuelve verdadero o falso
 	 */
 	public boolean createUser(User newUser);
 
 	/**
 	 * Modifica un usuario
 	 * 
-	 * @param userDTO
-	 * @param userSesion
-	 * @return boolean
+	 * @param userDTO UsuarioDTO
+	 * @param userSesion Usuario iniciado
+	 * @return boolean Devuelve verdadero o falso
 	 */
 	public boolean updateUser(UserDTO userDTO, User userSesion);
 
 	/**
 	 * Modifica la contraseña de un usuario
 	 * 
-	 * @param password
-	 * @param usuSesion
+	 * @param password Contraseña
+	 * @param usuSesion Usuario iniciado
 	 * @return
 	 */
 	public boolean updateUserPassword(String password, User usuSesion);
@@ -42,62 +42,62 @@ public interface UserManagementServiceI {
 	/**
 	 * Elimina un usuario
 	 * 
-	 * @param idUser
+	 * @param idUser ID de usuario
 	 */
 	public void deleteUser(Long idUser);
 
 	/**
 	 * Lista todos los usuarios
 	 * 
-	 * @return List<User>
+	 * @return List<User> Devuelve una lista de usuarios
 	 */
 	public List<User> searchAll();
 
 	/**
 	 * Busca un usuario por su id
 	 * 
-	 * @param id
-	 * @return User
+	 * @param id ID de usuario
+	 * @return User Devuelve un usuario
 	 */
 	public User searchById(Long id);
 
 	/**
 	 * Busca un usuario por su nombre
 	 * 
-	 * @param nameUser
-	 * @return User
+	 * @param nameUser Nombre de usuario
+	 * @return User Devuelve un usuario
 	 */
 	public User searchByName(String nameUser);
 
 	/**
 	 * Busca un usuario por su email
 	 * 
-	 * @param email
-	 * @return User
+	 * @param email Mail de usuario
+	 * @return User Devuelve un usuario
 	 */
 	public User searchByEmail(String email);
 
 	/**
 	 * Verifica si existe un usuario con ese nombre
 	 * 
-	 * @param nameUser
-	 * @return boolean
+	 * @param nameUser Nombre de usuario
+	 * @return boolean Devuelve verdadero o falso
 	 */
 	public boolean checkIfNameExists(String nameUser);
 
 	/**
 	 * Verifica si existe un usuario con ese email
 	 * 
-	 * @param email
-	 * @return boolean
+	 * @param email Mail de usuario
+	 * @return boolean Devuelve verdadero o falso
 	 */
 	public boolean checkIfEmailExists(String email);
 
 	/**
 	 * Lista usuarios filtrando por el nombre
 	 * 
-	 * @param filterString
-	 * @return List<User>
+	 * @param filterString Filtro de cadena
+	 * @return List<User> Devuelve lista de usuarios
 	 */
 	public List<User> searchByNameIgnoreCase(String filterString);
 
@@ -105,17 +105,17 @@ public interface UserManagementServiceI {
 	 * Busca un usuario por su nombre y verifica que no tenga la cuenta suspendida
 	 * en la fecha actual
 	 * 
-	 * @param username
-	 * @param now
-	 * @return User
+	 * @param username Nombre de usuario
+	 * @param now Fecha actual
+	 * @return User Devuelve usuario
 	 */
 	public User searchByUsernameAndNotBanned(String username, LocalDateTime now);
 
 	/**
 	 * Añade días a la suspensión
 	 * 
-	 * @param idUser
-	 * @param daysToAdd
+	 * @param idUser ID de usuario
+	 * @param daysToAdd Dias para añadir al ban
 	 */
 	public void addDaysToBannedTime(Long idUser, int daysToAdd);
 

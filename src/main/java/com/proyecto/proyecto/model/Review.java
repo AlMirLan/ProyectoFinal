@@ -61,10 +61,10 @@ public class Review implements Serializable {
 	/**
 	 * Constructor
 	 * 
-	 * @param user
-	 * @param boardGame
-	 * @param rating
-	 * @param comment
+	 * @param user Usuario que ha hecho la review
+	 * @param boardGame Juego de mesa al que hacen la review
+	 * @param rating Puntuación
+	 * @param comment Comentario
 	 */
 	public Review(User user, BoardGame boardGame, int rating, String comment) {
 		this.user = user;

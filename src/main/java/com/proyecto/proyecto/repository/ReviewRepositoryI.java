@@ -24,8 +24,8 @@ public interface ReviewRepositoryI extends JpaRepository<Review, ReviewPK> {
 	/**
 	 * Método que busca las valoraciones que tiene un juego de mesa
 	 * 
-	 * @param gameId
-	 * @return List<Review>
+	 * @param gameId ID del juego
+	 * @return List<Review> Lista de reseñas/reviews
 	 */
 	public List<Review> findByBoardGameIdGame(Long gameId);
 

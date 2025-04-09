@@ -24,15 +24,15 @@ public interface ProjectRepositoryI extends JpaRepository<Project, Long> {
 	 * Método que busca un proyecto cuyo nombre contenga una cadena específica,
 	 * ignorando mayúsculas y minúsculas
 	 * 
-	 * @param filterString
-	 * @return List<Project>
+	 * @param filterString Filtro de cadena
+	 * @return List<Project> Lista de proyectos
 	 */
 	public List<Project> findByNameProjectContainingIgnoreCase(String filterString);
 
 	/**
 	 * Método que busca un proyecto por su autor
 	 * 
-	 * @param idAuthor
+	 * @param idAuthor ID del usuario autor del proyecto
 	 * @return
 	 */
 	public List<Project> findByIdAuthor(Long idAuthor);

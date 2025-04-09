@@ -36,8 +36,8 @@ public class ReviewPK implements Serializable {
 	/**
 	 * Constructor
 	 * 
-	 * @param userId
-	 * @param gameId
+	 * @param userId ID Del usuario que hace la review
+	 * @param gameId ID del juego al que se le hace la review
 	 */
 	public ReviewPK(Long userId, Long gameId) {
 		this.userId = userId;

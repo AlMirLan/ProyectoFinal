@@ -7,6 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * Clase controlador de Errores
+ * 
+ * @author Alejandro_Mirabent_Landero
+ *
+ */
 @Controller
 public class ErrorsController implements ErrorController{
 	

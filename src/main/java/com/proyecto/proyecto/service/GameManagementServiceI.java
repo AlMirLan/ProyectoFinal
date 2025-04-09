@@ -14,54 +14,54 @@ public interface GameManagementServiceI {
 	/**
 	 * Crea un nuevo juego de mesa
 	 * 
-	 * @param game
-	 * @return boolean
+	 * @param game Juego
+	 * @return boolean Devuelve verdadero o falso
 	 */
 	public boolean createGame(BoardGame game);
 
 	/**
 	 * Modifica un juego de mesa
 	 * 
-	 * @param game
-	 * @param idGame
-	 * @return boolean
+	 * @param game Juego
+	 * @param idGame ID del juego
+	 * @return boolean Devuelve verdadero o falso
 	 */
 	public boolean updateGame(BoardGame game, Long idGame);
 
 	/**
 	 * Elimina un juego de mesa
 	 * 
-	 * @param idGame
+	 * @param idGame ID del juego
 	 */
 	public void deleteGame(Long idGame);
 
 	/**
 	 * Lista todos los juegos
 	 * 
-	 * @return List<BoardGame>
+	 * @return List<BoardGame> Devuelve una lista de juegos
 	 */
 	public List<BoardGame> searchAll();
 
 	/**
 	 * Busca un juego por su id
 	 * 
-	 * @param id
-	 * @return BoardGame
+	 * @param id ID del juego
+	 * @return BoardGame Devuelve el juego
 	 */
 	public BoardGame searchById(Long id);
 
 	/**
 	 * Lista juegos filtrando por el nombre
 	 * 
-	 * @param stringFilter
-	 * @return List<BoardGame>
+	 * @param stringFilter Filtro como cadena
+	 * @return List<BoardGame> Devuelve una lista de juegos
 	 */
 	public List<BoardGame> searchByNameIgnoreCase(String stringFilter);
 
 	/**
 	 * Lista los juegos denunciados
 	 * 
-	 * @return List<BoardGame>
+	 * @return List<BoardGame> Devuelve una lista de juegos
 	 */
 	public List<BoardGame> getReportedGames();
 

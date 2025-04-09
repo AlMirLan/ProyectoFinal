@@ -23,8 +23,8 @@ public interface BoardGameRepositoryI extends JpaRepository<BoardGame, Long> {
 	/**
 	 * Método que busca un juego por su nombre
 	 * 
-	 * @param stringFilter
-	 * @return List<BoardGame>
+	 * @param stringFilter Filtro como cadena
+	 * @return List<BoardGame> Lista de juegos
 	 */
 	public List<BoardGame> findByNameGameContainingIgnoreCase(String stringFilter);
 
