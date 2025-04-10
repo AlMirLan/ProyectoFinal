@@ -146,7 +146,7 @@ public class ProjectManagementServiceImp implements ProjectManagementServiceI {
 			return true;
 
 			// Si el porcentaje de aprobación es menor al 50% y hay más de 10 votos, o el
-			// portanje es menor al 20% y hay más de 3 votos, el proyecto es eliminado
+			// porcentaje es menor al 20% y hay más de 3 votos, el proyecto es eliminado
 		} else if ((percentage < 50 && votes.size() > 10) || (percentage < 20 && votes.size() > 3)) {
 			projectRepo.deleteById(project.getIdProject());
 			return true;

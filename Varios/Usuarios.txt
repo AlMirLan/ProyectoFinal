@@ -2,7 +2,7 @@ Password para todos: 123456
 Usuarios:
 -admin@admin.ad : Nombre-Admin
 -prueba1@prueba.pr : Nombre-Alejandro
--prueba2@prueba.pr : Nombre-Alejandro_Mirabent_Landero
+-prueba2@prueba.pr : Nombre-Manoli
 -prueba3@prueba.pr : Nombre-Nina
 -prueba4@prueba.pr : Nombre-Maria
 -prueba5@prueba.pr : Nombre-Eduardo
@@ -15,3 +15,12 @@ Usuarios:
 -prueba12@prueba.pr : Nombre-Mario
 -prueba13@prueba.pr : Nombre-Carlos
 -prueba14@prueba.pr : Nombre-Tasio
+
+
+
+BBDD alwaysdata
+user: 351154
+pass: Prueba@
+FTP: ftp-alejandroml.alwaysdata.net
+userftp: alejandroml_proyecto
+passfto: Prueba@

@@ -58,6 +58,9 @@
 					<li sec:authorize="hasRole('ROLE_ADMIN')"
 						th:class="${activePage == 'usersList'} ? 'active-nav-item' : ''"><a
 						href="/usersList" class="nav-link px-2 link-body-emphasis">Usuarios</a></li>
+					<li sec:authorize="hasRole('ROLE_ADMIN')"
+						th:class="${activePage == 'pdfReports'} ? 'active-nav-item' : ''"><a
+						href="/pdfReports" class="nav-link px-2 link-body-emphasis">Reportes</a></li>
 				</ul>
 
 				<div class="dropdown text-end">

@@ -58,6 +58,9 @@
 					<li sec:authorize="hasRole('ROLE_ADMIN')"
 						th:class="${activePage == 'usersList'} ? 'active-nav-item' : ''"><a
 						href="/usersList" class="nav-link px-2 link-body-emphasis">Usuarios</a></li>
+					<li sec:authorize="hasRole('ROLE_ADMIN')"
+						th:class="${activePage == 'pdfReports'} ? 'active-nav-item' : ''"><a
+						href="/pdfReports" class="nav-link px-2 link-body-emphasis">Reportes</a></li>
 				</ul>
 
 				<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
@@ -69,7 +72,7 @@
 					<a href="#"
 						class="d-block link-dark text-decoration-none dropdown-toggle"
 						data-bs-toggle="dropdown" aria-expanded="false"
-							th:text="${session.userSession.nameUser}" ></a>
+						th:text="${session.userSession.nameUser}"></a>
 					<ul class="dropdown-menu text-small">
 						<li><a class="dropdown-item bi bi-person-vcard"
 							title="Mi perfil" th:href="@{/user/profile}"> Mi perfil</a></li>
