@@ -22,40 +22,34 @@
 
   <!-- Estilos CSS-->
   <link href="/css/fragments.css" rel="stylesheet">
-  <link href="/css/usersList.css" rel="stylesheet">
+  <link href="/css/pdfReports.css" rel="stylesheet">
 </head>
 
 <body>
   <main>
     <header th:replace="fragments/headerSearch::header"></header>
 
-    <div class="container-fluid py-5 bg-body-tertiary text-center">
-      <h2 tabindex="0">Elige el reporte a descargar</h2>
+		<div class="container-fluid py-5 bg-body-tertiary text-center">
+			<h2 tabindex="0">Elige el reporte a descargar</h2>
+			<div>
+				<form method="post" th:action="@{/pdfReports}" class="reports">
+					<div class="form-group">
+						<div class="rating">
+							<select class="form-select form-select-sm" id="selected-report"
+								name="report" tabindex="0">
+								<option value="1">Todos los juegos</option>
+								<option value="2">Todos los proyectos</option>
+								<option value="3">Todos los usuarios</option>
+								<option value="4">Todos los usuarios baneados</option>
+							</select>
+						</div>
+					</div>
+					<button type="submit" class="btn">Descargar</button>
+				</form>
+			</div>
 
-							<form method="post"
-								>
-								<div class="form-group">
-									<label for="game-rating" tabindex="0">Reporte:</label>
-									<div class="rating">
-										<select class="form-select form-select-sm" id="selected-report"
-											name="report" tabindex="0">
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>
-											<option value="5">5</option>
-											<option value="6">6</option>
-											<option value="7">7</option>
-											<option value="8">8</option>
-											<option value="9">9</option>
-											<option value="10">10</option>
-										</select>
-									</div>
-								</div>
-								<button type="submit" class="btn">Descargar</button>
-							</form>
-    </div>
-  </main>
+		</div>
+	</main>
   <a href="#top" title="flechaInicio" class="scroll-to-top" tabindex="0" aria-label="Volver arriba"> 
     <em class="bi bi-arrow-up-short" title="Scroll hacia arriba"></em>
   </a>

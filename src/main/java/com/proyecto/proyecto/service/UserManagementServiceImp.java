@@ -1,6 +1,7 @@
 package com.proyecto.proyecto.service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -143,6 +144,19 @@ public class UserManagementServiceImp implements UserManagementServiceI {
 			user.setBannedTime(newBannedTime);
 			userRepo.save(user);
 		}
+	}
+	
+	public List<User> searchBannedUsers() {
+		
+		List<User> usuarios = userRepo.findAll();
+		List<User> baneados = new ArrayList<>();
+		LocalDateTime now = LocalDateTime.now();
+		for(User user: usuarios) {
+			if(user.getBannedTime() != null && user.getBannedTime().isAfter(now)) {
+				baneados.add(user);
+			}
+		}
+		return baneados;
 	}
 
 }

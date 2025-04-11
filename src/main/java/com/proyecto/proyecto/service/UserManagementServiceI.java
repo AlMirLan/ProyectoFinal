@@ -119,4 +119,10 @@ public interface UserManagementServiceI {
 	 */
 	public void addDaysToBannedTime(Long idUser, int daysToAdd);
 
+	
+	/*
+	 * Busca los usuarios baneados
+	 * @return List<User> Devuelve una lista de los usuarios baneados
+	 */
+	public List<User> searchBannedUsers();
 }
