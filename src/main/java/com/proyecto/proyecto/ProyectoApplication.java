@@ -17,7 +17,7 @@ import com.proyecto.proyecto.storage.StorageService;
  *
  */
 @SpringBootApplication
-@ComponentScan
+@ComponentScan()
 public class ProyectoApplication extends SpringBootServletInitializer {
 
 	/**

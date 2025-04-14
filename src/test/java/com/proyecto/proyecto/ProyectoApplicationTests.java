@@ -8,6 +8,6 @@ class ProyectoApplicationTests {
 
 	@Test
 	void contextLoads() {
+		
 	}
-
 }
