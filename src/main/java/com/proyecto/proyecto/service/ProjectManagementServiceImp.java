@@ -62,7 +62,7 @@ public class ProjectManagementServiceImp implements ProjectManagementServiceI {
 		for (Project project : projectsList) {
 
 			// Si el nombre contiene la cadena de busqueda se añade a la nueva lista
-			if (project.getNameProject().contains(filterString)) {
+			if (project.getNameProject().toLowerCase().contains(filterString)) {
 				filteredProjects.add(project);
 			}
 		}
