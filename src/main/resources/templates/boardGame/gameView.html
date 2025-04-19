@@ -65,6 +65,18 @@
 						<h2 th:text="${game.nameGame}" tabindex="0"></h2>
 						<h4 class="mt-4" th:text="'Género: ' + ${game.category}" tabindex="0"></h4>
 						<p class="mt-4" th:text="${game.descriptionGame}" tabindex="0"></p>
+
+						<!-- Botón de descarga del PDF, solo si hay archivo -->
+						<div class="mt-3" th:if="${game.pdfGame != null}">
+							<a 
+							  th:href="@{${game.getPdfGame}}"
+							  class="btn btn-outline-secondary"
+							  target="_blank"
+							  download
+							>
+							  <i class="bi bi-file-earmark-pdf"></i> Descargar PDF adjunto
+							</a>
+						  </div>
 					</div>
 
 					<div class="reviews col-3 col-lg-1 align-self-center">

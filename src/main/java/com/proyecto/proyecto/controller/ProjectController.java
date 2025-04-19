@@ -1,6 +1,8 @@
 package com.proyecto.proyecto.controller;
 
 import java.io.IOException;
+import java.net.http.HttpHeaders;
+
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -21,192 +23,216 @@ import com.proyecto.proyecto.model.User;
 import com.proyecto.proyecto.service.ProjectManagementServiceI;
 import com.proyecto.proyecto.storage.StorageService;
 import io.swagger.v3.oas.annotations.Operation;
+import org.springframework.http.MediaType;
+import java.io.IOException;
 
 /**
  * Clase controlador de Proyecto
- * 
+ *
  * @author Alejandro_Mirabent_Landero
  *
  */
 @Controller
 public class ProjectController {
 
-	@Autowired
-	private ProjectManagementServiceI projectService;
+    @Autowired
+    private ProjectManagementServiceI projectService;
 
-	@Autowired
-	private StorageService storageService;
+    @Autowired
+    private StorageService storageService;
 
-	private Project newModelProject = new Project();
+    private Project newModelProject = new Project();
 
-	/**
-	 * Muestra la lista de proyectos
-	 * 
-	 * @param model
-	 * @param filterString
-	 * @return projectList
-	 */
-	@GetMapping("/projectList")
-	public String listProjects(Model model, @RequestParam(value = "q", required = false) String filterString) {
-		model.addAttribute("activePage", "projectList");
-		
-		// Si el parámetro de búsqueda es nulo, se muestra todos los proyectos
-		if (filterString == null)
-			model.addAttribute("projectList", projectService.searchAll());
-		else
-			model.addAttribute("projectList", projectService.searchByNameProjectIgnoreCase(filterString));
+    /**
+     * Muestra la lista de proyectos
+     *
+     * @param model
+     * @param filterString
+     * @return projectList
+     */
+    @GetMapping("/projectList")
+    public String listProjects(Model model, @RequestParam(value = "q", required = false) String filterString) {
+        model.addAttribute("activePage", "projectList");
 
-		return "project/projectList";
-	}
+        // Si el parámetro de búsqueda es nulo, se muestra todos los proyectos
+        if (filterString == null) {
+            model.addAttribute("projectList", projectService.searchAll());
+        } else {
+            model.addAttribute("projectList", projectService.searchByNameProjectIgnoreCase(filterString));
+        }
 
-	/**
-	 * Muestra la vista de un proyecto
-	 * 
-	 * @param idProject
-	 * @param model
-	 * @return projectView
-	 */
-	@GetMapping("/project/{idProject}")
-	public String viewProject(@PathVariable long idProject, Model model) {
-		Project project = projectService.searchById(idProject);
-		model.addAttribute("project", project);
-		return "project/projectView";
-	}
+        return "project/projectList";
+    }
 
-	/**
-	 * Registra el voto de un usuario
-	 * 
-	 * @param vote
-	 * @param idProject
-	 * @param request
-	 * @param response
-	 * @throws IOException
-	 */
-	@PostMapping("/voteProject")
-	public String vote(@RequestParam("vote") boolean vote, @RequestParam("idProject") Long idProject, HttpServletRequest request) {
-		User user = (User) request.getSession().getAttribute("userSession");
-		if (projectService.vote(vote, idProject, user)) {
-			return "redirect:/projectList";
-		} else {
-			return "redirect:/projectList";
-			//return "redirect:/project/" + idProject;
-		}
-	}
+    /**
+     * Muestra la vista de un proyecto
+     *
+     * @param idProject
+     * @param model
+     * @return projectView
+     */
+    @GetMapping("/project/{idProject}")
+    public String viewProject(@PathVariable long idProject, Model model) {
+        Project project = projectService.searchById(idProject);
+        model.addAttribute("project", project);
+        return "project/projectView";
+    }
 
-	/**
-	 * Muestra la vista para crear un nuevo proyecto
-	 * 
-	 * @param model
-	 * @return newProject
-	 */
-	@GetMapping("/newProject")
-	public String newProject(Model model) {
-		model.addAttribute("activePage", "newProject");
-		model.addAttribute("newProject", newModelProject);
-		return "project/newProject";
-	}
+    /**
+     * Registra el voto de un usuario
+     *
+     * @param vote
+     * @param idProject
+     * @param request
+     * @param response
+     * @throws IOException
+     */
+    @PostMapping("/voteProject")
+    public String vote(@RequestParam("vote") boolean vote, @RequestParam("idProject") Long idProject, HttpServletRequest request) {
+        User user = (User) request.getSession().getAttribute("userSession");
+        if (projectService.vote(vote, idProject, user)) {
+            return "redirect:/projectList";
+        } else {
+            return "redirect:/projectList";
+            //return "redirect:/project/" + idProject;
+        }
+    }
 
-	/**
-	 * Crea un nuevo proyecto
-	 * 
-	 * @param proyecto
-	 * @param file
-	 * @param request
-	 * @param model
-	 * @return projectList
-	 */
-	@PostMapping("/newProject/submit")
-	@Operation(summary = "Crea un proyecto")
-	public String createProject(@ModelAttribute("newProject") ProjectDTO projectDTO, @RequestParam("file") MultipartFile file, HttpServletRequest request, Model model) {
-		User user = (User) request.getSession().getAttribute("userSession");
+    /**
+     * Muestra la vista para crear un nuevo proyecto
+     *
+     * @param model
+     * @return newProject
+     */
+    @GetMapping("/newProject")
+    public String newProject(Model model) {
+        model.addAttribute("activePage", "newProject");
+        model.addAttribute("newProject", newModelProject);
+        return "project/newProject";
+    }
 
-		// Valida el tipo de archivo
-		if (!file.isEmpty()) {
-			String contentType = file.getContentType();
-			if (!contentType.equals("image/png") && !contentType.equals("image/jpeg") && !contentType.equals("image/jpg")) {
-			    return "project/projectList";
-			}
-		}
+    /**
+     * Crea un nuevo proyecto
+     *
+     * @param proyecto
+     * @param file
+     * @param request
+     * @param model
+     * @return projectList
+     */
+    @PostMapping("/newProject/submit")
+    @Operation(summary = "Crea un proyecto")
+    public String createProject(@ModelAttribute("newProject") ProjectDTO projectDTO, @RequestParam("file") MultipartFile file, @RequestParam("file2") MultipartFile file2, HttpServletRequest request, Model model) {
+        User user = (User) request.getSession().getAttribute("userSession");
 
-		// Alamacena la imagen
-		String img = storageService.storeProject(file);
+        // Valida el tipo de archivo
+        if (!file.isEmpty()) {
+            String contentType = file.getContentType();
+            if (!contentType.equals("image/png") && !contentType.equals("image/jpeg") && !contentType.equals("image/jpg")) {
+                return "project/projectList";
+            }
+        }
 
-		// Asigna los valores del DTO a los campos correspondientes de Project
-		Project project = new Project();
-		project.setNameProject(projectDTO.getNameProject());
-		project.setDescriptionProject(projectDTO.getDescriptionProject());
-		project.setCategory(projectDTO.getCategory());
+        // Alamacena la imagen
+        String img = storageService.storeProject(file);   
 
-		if (img != null) {
-			
-			// Asigna la ruta de la imagen
-			project.setImageProject(MvcUriComponentsBuilder.fromMethodName(ProjectController.class, "serveFile", img).build().toUriString());
-		}
+        // Almacena el pdf
+        String pdf = file2.isEmpty() ? null : storageService.storeProject(file2);
 
-		if (projectService.createProject(project, user))
-			return "redirect:/projectList";
-		else {
-			newModelProject = project;
-			return "redirect:/newProject";
-		}
-	}
+        // Asigna los valores del DTO a los campos correspondientes de Project
+        Project project = new Project();
+        project.setNameProject(projectDTO.getNameProject());
+        project.setDescriptionProject(projectDTO.getDescriptionProject());
+        project.setCategory(projectDTO.getCategory());
 
-	/**
-	 * Lista los proyectos del usuario
-	 * 
-	 * @param model
-	 * @param filterString
-	 * @param request
-	 * @return myProjects
-	 */
-	@GetMapping("/myProjects")
-	public String listMyProjects(Model model, @RequestParam(value = "q", required = false) String filterString,	HttpServletRequest request) {
-		User user = (User) request.getSession().getAttribute("userSession");
-		
-		model.addAttribute("activePage", "myProjects");
-		
-		// Si el parámetro de búsqueda es nulo, se muestra todos los proyectos del usuario
-		if (filterString == null)
-			model.addAttribute("listMyProjects", projectService.searchByMyProjects(user));
-		else
-			model.addAttribute("listMyProjects", projectService.searchByMyProjectsIgnoreCase(filterString, user));
+        if (img != null) {
 
-		return "project/myProjects";
-	}
+            // Asigna la ruta de la imagen
+            project.setImageProject(MvcUriComponentsBuilder.fromMethodName(ProjectController.class, "serveFile", img).build().toUriString());
+        }
 
-	/**
-	 * Elimina un proyecto
-	 * 
-	 * @param idProject
-	 * @return projectList
-	 */
-	@GetMapping("/deleteProject")
-	public String deleteProject(@RequestParam("idProject") Long idProject) {
-		projectService.deleteProject(idProject);
-		return "redirect:/projectList";
-	}
-	
-	@GetMapping("/deleteMyProject")
-	public String deleteMyProject(@RequestParam("idProject") Long idProject) {
-		projectService.deleteProject(idProject);
-		return "redirect:/projectList";
-	}
+		if (pdf != null) {
+        project.setPdfProject(MvcUriComponentsBuilder
+            .fromMethodName(ProjectController.class, "serveFile", pdf)
+            .build().toUriString());
+    }
 
-	/**
-	 * Obtiene un archivo y lo envía como respuesta.
-	 * 
-	 * @param filename
-	 * @return estado 200
-	 */
-	@GetMapping("/files1/{filename:.+}")
-	@ResponseBody
-	public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
 
-		// Carga el archivo como un recurso
-		Resource file = storageService.loadAsResource(filename);
+        if (projectService.createProject(project, user)) {
+            return "redirect:/projectList";
+        } else {
+            newModelProject = project;
+            return "redirect:/newProject";
+        }
+    }
 
-		// Devuelve el archivo como respuesta con código de estado 200 (OK)
-		return ResponseEntity.ok().body(file);
-	}
+    /**
+     * Lista los proyectos del usuario
+     *
+     * @param model
+     * @param filterString
+     * @param request
+     * @return myProjects
+     */
+    @GetMapping("/myProjects")
+    public String listMyProjects(Model model, @RequestParam(value = "q", required = false) String filterString, HttpServletRequest request) {
+        User user = (User) request.getSession().getAttribute("userSession");
+
+        model.addAttribute("activePage", "myProjects");
+
+        // Si el parámetro de búsqueda es nulo, se muestra todos los proyectos del usuario
+        if (filterString == null) {
+            model.addAttribute("listMyProjects", projectService.searchByMyProjects(user));
+        } else {
+            model.addAttribute("listMyProjects", projectService.searchByMyProjectsIgnoreCase(filterString, user));
+        }
+
+        return "project/myProjects";
+    }
+
+    /**
+     * Elimina un proyecto
+     *
+     * @param idProject
+     * @return projectList
+     */
+    @GetMapping("/deleteProject")
+    public String deleteProject(@RequestParam("idProject") Long idProject) {
+        projectService.deleteProject(idProject);
+        return "redirect:/projectList";
+    }
+
+    @GetMapping("/deleteMyProject")
+    public String deleteMyProject(@RequestParam("idProject") Long idProject) {
+        projectService.deleteProject(idProject);
+        return "redirect:/projectList";
+    }
+
+    /**
+     * Obtiene un archivo y lo envía como respuesta.
+     *
+     * @param filename
+     * @return estado 200
+     */
+    @GetMapping("/files1/{filename:.+}")
+    @ResponseBody
+    public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
+        // Carga el archivo como un recurso
+        Resource file = storageService.loadAsResource(filename);
+
+        // Determina el tipo de contenido
+        String contentType;
+        try {
+            contentType = file.getURL().toString().toLowerCase().endsWith(".pdf")
+                    ? "application/pdf" : "application/octet-stream";
+        } catch (IOException e) {
+            contentType = "application/octet-stream";
+        }
+
+        return ResponseEntity.ok()
+                .header("Content-Disposition", "attachment; filename=\"" + file.getFilename() + "\"")
+                .contentType(MediaType.parseMediaType(contentType))
+                .body(file);
+    }
 
 }

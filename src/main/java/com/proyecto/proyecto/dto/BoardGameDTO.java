@@ -26,6 +26,9 @@ public class BoardGameDTO {
 	/** Imagen del juego **/
 	private String imageGame;
 
+	/** PDF del juego **/
+	private String pdfGame;
+
 	/** Categoria del juego **/
 	private Category category;
 

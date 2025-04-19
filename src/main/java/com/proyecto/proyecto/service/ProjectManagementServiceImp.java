@@ -158,7 +158,7 @@ public class ProjectManagementServiceImp implements ProjectManagementServiceI {
 	@Override
 	public void projectEvolve(Project project) {
 		BoardGame boardGame = new BoardGame(project.getCategory(), project.getNameProject(),
-				project.getDescriptionProject(), project.getImageProject(), 0, 0);
+				project.getDescriptionProject(), project.getImageProject(), project.getPdfProject(), 0, 0);
 		gameRepo.save(boardGame);
 		projectRepo.deleteById(project.getIdProject());
 	}

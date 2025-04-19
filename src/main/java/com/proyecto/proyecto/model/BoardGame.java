@@ -48,6 +48,10 @@ public class BoardGame implements Serializable {
 	@Column(name = "GAME_IMAGE")
 	private String imageGame;
 
+	/** PDF del juego **/
+	@Column(name = "GAME_PDF")
+	private String pdfGame;
+
 	/** Categoria del juego **/
 	@Column(name = "GAME_CATEGORY")
 	@Enumerated(EnumType.STRING)
@@ -91,13 +95,14 @@ public class BoardGame implements Serializable {
 	 * @param reviewCount Conteo de las reviews
 	 * @param averageRating Puntuación media
 	 */
-	public BoardGame(Category category, String nameGame, String descriptionGame, String imageGame, int reviewCount,
+	public BoardGame(Category category, String nameGame, String descriptionGame, String imageGame, String pdfGame, int reviewCount,
 			double averageRating) {
 		super();
 		this.category = category;
 		this.nameGame = nameGame;
 		this.descriptionGame = descriptionGame;
 		this.imageGame = imageGame;
+		this.pdfGame = pdfGame;
 		this.reviewCount = reviewCount;
 		this.averageRating = averageRating;
 	}

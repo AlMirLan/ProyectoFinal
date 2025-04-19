@@ -5,6 +5,7 @@ function validateFormNewGame() {
 	const titleInput = document.getElementById('title');
 	const descriptionInput = document.getElementById('description');
 	const fileInput = document.getElementById('image');
+	const fileInput2 = document.getElementById('pdf');
 	const maxSize = 1000000; // 1 MB
 
 	// Validación de longitud del título
@@ -53,6 +54,33 @@ function validateFormNewGame() {
 			fileInput.classList.remove('is-invalid');
 		}
 	}
+
+		// Validación del tamaño del archivo pdf
+		if (fileInput2.files.length > 0) {
+			const fileSize = fileInput2.files[0].size; // Tamaño del archivo en bytes
+			const pdfSizeError = document.getElementById('pdfSizeError');
+			const allowedExtensions = ['.pdf', '.docx', 'doc'];
+			const fileExtension = fileInput2.value.substring(fileInput2.value.lastIndexOf('.')).toLowerCase();
+	
+			if (!allowedExtensions.includes(fileExtension)) {
+				pdfSizeError.textContent = 'El archivo debe ser de tipo PDF o WORD.';
+				pdfSizeError.style.display = 'block';
+				fileInput2.classList.add('is-invalid');
+	
+				// Evita que se envíe el formulario
+				return false;
+			} else if (fileSize > maxSize) {
+				pdfSizeError.textContent = 'El archivo debe tener un tamaño máximo de 1 MB.';
+				pdfSizeError.style.display = 'block';
+				fileInput2.classList.add('is-invalid');
+	
+				//Evita que se envíe el formulario
+				return false;
+			} else {
+				pdfSizeError.style.display = 'none';
+				fileInput2.classList.remove('is-invalid');
+			}
+		}
 
 	// Envía el formulario si todas las validaciones son válidas
 	return true;
@@ -136,6 +164,7 @@ function validateFormNewProject() {
 	const titleInput = document.getElementById('title');
 	const descriptionInput = document.getElementById('description');
 	const fileInput = document.getElementById('image');
+	const fileInput2 = document.getElementById('pdf');
 	// 1 MB
 	const maxSize = 1000000;
 
@@ -185,6 +214,33 @@ function validateFormNewProject() {
 		} else {
 			imageSizeError.style.display = 'none';
 			fileInput.classList.remove('is-invalid');
+		}
+	}
+	
+	// Validación del tamaño del archivo pdf
+	if (fileInput2.files.length > 0) {
+		const fileSize = fileInput2.files[0].size; // Tamaño del archivo en bytes
+		const pdfSizeError = document.getElementById('pdfSizeError');
+		const allowedExtensions = ['.pdf', '.docx', 'doc'];
+		const fileExtension = fileInput2.value.substring(fileInput2.value.lastIndexOf('.')).toLowerCase();
+
+		if (!allowedExtensions.includes(fileExtension)) {
+			pdfSizeError.textContent = 'El archivo debe ser de tipo PDF o WORD.';
+			pdfSizeError.style.display = 'block';
+			fileInput2.classList.add('is-invalid');
+
+			// Evita que se envíe el formulario
+			return false;
+		} else if (fileSize > maxSize) {
+			pdfSizeError.textContent = 'El archivo debe tener un tamaño máximo de 1 MB.';
+			pdfSizeError.style.display = 'block';
+			fileInput2.classList.add('is-invalid');
+
+			//Evita que se envíe el formulario
+			return false;
+		} else {
+			pdfSizeError.style.display = 'none';
+			fileInput2.classList.remove('is-invalid');
 		}
 	}
 

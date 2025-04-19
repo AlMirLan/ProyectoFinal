@@ -46,6 +46,7 @@ CREATE TABLE IF NOT EXISTS `board_game` (
   `game_name` varchar(255) DEFAULT NULL,
   `report_count` int(11) DEFAULT NULL,
   `rewiew_count` int(11) DEFAULT NULL,
+  `game_pdf` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`game_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 
@@ -58,6 +59,7 @@ CREATE TABLE IF NOT EXISTS `project` (
   `project_image` varchar(255) DEFAULT NULL,
   `project_name` varchar(255) DEFAULT NULL,
   `votes_count` int(11) DEFAULT NULL,
+  `project_pdf` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`project_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 

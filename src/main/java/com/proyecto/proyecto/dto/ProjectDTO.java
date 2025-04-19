@@ -26,6 +26,9 @@ public class ProjectDTO {
 	/** Imagen del proyecto **/
 	private String imageProject;
 
+	/** PDF del proyecto **/
+	private String pdfProject;
+
 	/** Categoria del proyecto **/
 	private Category category;
 

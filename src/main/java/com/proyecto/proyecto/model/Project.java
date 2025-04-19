@@ -48,6 +48,10 @@ public class Project implements Serializable {
 	@Column(name = "PROJECT_IMAGE")
 	private String imageProject;
 
+	/** PDF del proyecto **/
+	@Column(name = "PROJECT_PDF")
+	private String pdfProject;
+
 	/** Categoria del proyecto **/
 	@Column(name = "PROJECT_CATEGORY")
 	@Enumerated(EnumType.STRING)
